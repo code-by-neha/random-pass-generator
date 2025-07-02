@@ -10,7 +10,25 @@ function App() {
   let [passwordlen, setPasswordlen] = useState(10);
   let [fpass, setPass] = useState("");
 
-  let createPassword = () => {
+  const validate = (value) => {
+    const errors = {};
+    if (value > 20) {
+      errors.passwordlen = "Max length is 20!";
+    } else if (value < 4) {
+      errors.passwordlen = "Min length is 4!";
+    }
+    return errors;
+  };
+
+  const createPassword = () => {
+    const length = parseInt(passwordlen);
+    const errors = validate(length);
+
+    if (Object.keys(errors).length > 0) {
+      alert(errors.passwordlen);
+      return;
+    }
+     
     let charSet = "";
     if (uppercase || lowercase || number || symbols) {
       let finalpass = "";
