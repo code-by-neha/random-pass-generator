@@ -1,5 +1,97 @@
-.body{
-  background-color: rgb(43, 43, 72);
-  width: 100%;
+/* App.css */
+
+body {
+  background-color: #f2f2f2;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
+  margin: 0;
+}
+
+.passwordBox {
+  background-color: #ffffff;
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 350px;
+}
+
+.passwordBox h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.passwordBoxIn {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.passwordBoxIn input {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-right: none;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+}
+
+.passwordBoxIn button {
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  background-color: #4caf50;
+  color: white;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.passwordBoxIn button:hover {
+  background-color: #45a049;
+}
+
+.passLength {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.passLength label {
+  font-size: 14px;
+  color: #333;
+}
+
+.passLength input[type="number"] {
+  width: 60px;
+  padding: 5px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.passLength input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #0069d9;
 }
