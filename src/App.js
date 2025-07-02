@@ -7,6 +7,20 @@ let [lowercase,setLowercase]=useState(false);
 let [number,setNumber]=useState(false);
 let [symbols,setSymbols]=useState(false);
 
+let createPassword = () => {
+  let charSet=''
+  if(uppercase || lowercase || number || symbols)
+  {
+    if(uppercase) charSet+=UC;
+    if(lowercase) charSet+=LC;
+    if(number) charSet+=NC;
+    if(symbols) charSet+=SC;
+  }
+  else{
+    alert("Select CheckBox !")
+  }
+}
+
   return (
     <>
       <div className="passwordBox">
@@ -41,8 +55,9 @@ let [symbols,setSymbols]=useState(false);
           <label>Include Symbols</label>
           <input type="checkbox" checked={symbols} onChange={()=>setSymbols(!symbols)} />
         </div>
-
-        <button>Generate Password</button>
+      
+          <button className="btn" onClick={createPassword}>Generate Password</button>
+    
       </div>
     </>
   );
