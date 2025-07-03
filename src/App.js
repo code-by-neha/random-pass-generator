@@ -8,6 +8,7 @@ function App() {
   let [number, setNumber] = useState(false);
   let [symbols, setSymbols] = useState(false);
   let [passwordlen, setPasswordlen] = useState(10);
+  let [passwordError, setPasswordError] = useState("");
   let [fpass, setPass] = useState("");
 
   const validate = (value) => {
@@ -21,14 +22,8 @@ function App() {
   };
 
   const createPassword = () => {
-    const length = parseInt(passwordlen);
-    const errors = validate(length);
-
-    if (Object.keys(errors).length > 0) {
-      alert(errors.passwordlen);
-      return;
-    }
-     
+    if (passwordError) return;
+  
     let charSet = "";
     if (uppercase || lowercase || number || symbols) {
       let finalpass = "";
@@ -44,6 +39,7 @@ function App() {
       alert("Select CheckBox !");
     }
   };
+  
 
   return (
     <>
@@ -69,8 +65,19 @@ function App() {
             max={20}
             min={4}
             value={passwordlen}
-            onChange={(event) => setPasswordlen(event.target.value)}
+            onChange={(event) => {
+              const value = parseInt(event.target.value);
+              setPasswordlen(value);
+              if (value > 20) {
+                setPasswordError("Max length is 20!");
+              } else if (value < 4) {
+                setPasswordError("Min length is 4!");
+              } else {
+                setPasswordError("");
+              }
+            }}
           />
+          
         </div>
 
         <div className="passLength">
@@ -108,8 +115,16 @@ function App() {
             onChange={() => setSymbols(!symbols)}
           />
         </div>
-
-        <button className="btn" onClick={createPassword}>
+        <center>
+        {passwordError && (
+            <p style={{ color: "red", fontSize: "16px" }}>{passwordError}</p>
+          )}
+        </center>
+        <button
+          className="btn"
+          onClick={createPassword}
+          disabled={!!passwordError}
+        >
           Generate Password
         </button>
       </div>
