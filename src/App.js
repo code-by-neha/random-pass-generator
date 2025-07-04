@@ -11,15 +11,6 @@ function App() {
   let [passwordError, setPasswordError] = useState("");
   let [fpass, setPass] = useState("");
 
-  const validate = (value) => {
-    const errors = {};
-    if (value > 20) {
-      errors.passwordlen = "Max length is 20!";
-    } else if (value < 4) {
-      errors.passwordlen = "Min length is 4!";
-    }
-    return errors;
-  };
 
   const createPassword = () => {
     if (passwordError) return;
